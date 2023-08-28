@@ -19,6 +19,8 @@ def listen_action(app: App, action_defs: list[ActionDef]):
     @app.action(re.compile(""))
     def action_handler(body, ack, say):
         for action_def in action_defs:
-            if body["actions"][0]["action_id"] == action_def.id:
-                ack()
+            action_id = body["actions"][0]["action_id"]
+            if action_id == action_def.id:
+                value = body["actions"][0]["selected_option"]["value"] # value-N
                 say(action_def.text)
+                ack()
