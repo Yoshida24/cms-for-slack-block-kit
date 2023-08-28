@@ -2,9 +2,14 @@ from slack_bolt import App
 from cms import MessageDef, ActionDef
 import re
 
+# "bot_message" サブタイプのメッセージを抽出するリスナーミドルウェア
+def no_bot_messages(message, next):
+    subtype = message.get("subtype")
+    if subtype != "bot_message":
+       next()
 
 def listen_message(app: App, message_defs: list[MessageDef]):
-    @app.message(re.compile(""))
+    @app.event(event="message", middleware=[no_bot_messages])
     def message_handler(message, say):
         for message_def in message_defs:
             for trigger in message_def.triggers:
