@@ -22,5 +22,5 @@ def listen_action(app: App, action_defs: list[ActionDef]):
             action_id = body["actions"][0]["action_id"]
             if action_id == action_def.id:
                 value = body["actions"][0]["selected_option"]["value"] # value-N
-                say(action_def.text)
+                say(action_def.text + value)
                 ack()
