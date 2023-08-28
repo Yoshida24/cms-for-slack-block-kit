@@ -1,8 +1,8 @@
 # cms-for-slack-block-kit
 
-## How to Use
+## How to Setup
 
-### Setup
+### Install
 Activate venv, and install dependencies.
 
 ```
@@ -11,6 +11,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+### Setup access to Google SpreadSheet
 Enable API on GCP.
 - Google Drive API
 - Google Sheets API
@@ -20,7 +21,13 @@ Put key file in `./keys` .
 
 Make Google Spread Sheet, and share to mail address written in key.
 
-After all, you can treat GSpreadSheet from this apps.
+After all, you can access GSpreadSheet from this apps.
+
+### Setup Slack
+WIP
+
+### Run on local
+
 
 ```bash
 make run
