@@ -1,3 +1,3 @@
 #!/bin/bash
-set -a && source ./.env && set +a
+set -a && . ./.env && set +a
 python ./src/app/app.py
